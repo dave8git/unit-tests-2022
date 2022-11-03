@@ -24,25 +24,22 @@ describe('Component currencyForm', () => {
             // find "convert" button 
             const submitButton = screen.getByTxt('Convert');
     
-            // simulate user click on "convert" button
-            userEvent.click(submitButton);
-    
-            // check if action callback was called once
-            // expect(action).toHaveBeenCalledTime(1);
-    
             // find field elems 
             const amountField = screen.getByTestId('amount');
             const fromField = screen.getByTestId('from-select');
             const toField = screen.getByTestId('to-select');
     
             // set test values to fields 
-            userEvent.type(amountField, testCases.amount);
-            userEvent.selectOptions(fromField, testCases.from);
-            userEvent.selectOptions(toField, testCases.to);
+            userEvent.type(amountField, singleTest.amount);
+            userEvent.selectOptions(fromField, singleTest.from);
+            userEvent.selectOptions(toField, singleTest.to);
+
+            // simulate user click on "convert" button
+            userEvent.click(submitButton);
     
             // check if action callback was called once and with proper argument 
             expect(action).toHaveBeenCalledTimes(1);
-            expect(action).toHaveBeenCalledWith({ amount: testCases.amount, from: testCases.from, to: testCases.to });
+            expect(action).toHaveBeenCalledWith({ amount: parseInt(singleTest.amount), from: singleTest.from, to: singleTest.to });
 
             cleanup();
         });
