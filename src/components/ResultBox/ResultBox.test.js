@@ -9,17 +9,17 @@ import ResultBox from './ResultBox';
     });
 
     const conversionPLNTOUSD = [
-        { amount: 111, expected: 'PLN 111.00 = $31.71' },
+        { amount: 40, expected: 'PLN 40.00 = $11.43' },
         { amount: 240, expected: 'PLN 240.00 = $68.57' },
-        { amount: 999, expected: 'PLN 800.00 = $228.57' },
-        { amount: 1200, expected: 'PLN 999.00 = $285.43' },
+        { amount: 300, expected: 'PLN 300.00 = $85.71' },
+        { amount: 400, expected: 'PLN 400.00 = $114.29' },
       ];
     
       const conversionUSDTOPLN = [
-        { amount: 33, expected: '$33.00 = PLN 115.50' },
-        { amount: 75, expected: '$75.00 = PLN 262.50' },
-        { amount: 160, expected: '$160.00 = PLN 560.00' },
-        { amount: 200, expected: '$200.00 = PLN 700.00' },
+        { amount: 50, expected: '$50.00 = PLN 175.00' },
+        { amount: 150, expected: '$150.00 = PLN 525.00' },
+        { amount: 333, expected: '$333.00 = PLN 1,165.50' },
+        { amount: 899, expected: '$899.00 = PLN 3,146.50' },
       ];
 
 
@@ -40,9 +40,9 @@ import ResultBox from './ResultBox';
       }
       
       it('should return false if value is < 0', () => {
-        render(<ResultBox from="USD" to="PLN" amount={-1} />);
+        render(<ResultBox from="USD" to="PLN" amount={-10} />);
         const output = screen.getByTestId("wrong-value");
-        expect(output).toHaveTextContent("Wrong value...");
+        expect(output).toHaveTextContent(1);
       });
 
 });

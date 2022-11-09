@@ -18,7 +18,7 @@ const ResultBox = ({ from, to, amount }) => {
   if (amount < 0) {
     return (
       <div className={styles.result} data-testid="wrong-value">
-        "Wrong value..."
+        1
       </div>
     );
 
